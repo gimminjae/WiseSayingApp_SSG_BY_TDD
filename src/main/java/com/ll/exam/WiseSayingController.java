@@ -4,11 +4,9 @@ import java.util.*;
 
 public class WiseSayingController {
     private WiseSayingService wsService;
-    private int lastId;
     private Scanner sc;
     public WiseSayingController(Scanner sc) {
         wsService = new WiseSayingService();
-        lastId = 1;
         this.sc = sc;
     }
     public void create(Rq rq) {
@@ -18,10 +16,8 @@ public class WiseSayingController {
         System.out.print("작가 : ");
         String author = sc.nextLine();
 
-        WiseSaying ws = new WiseSaying(lastId, author, wiseSaying);
-        wsService.create(ws);
+        WiseSaying ws = wsService.create(wiseSaying, author);
         System.out.printf("%d번 명언이 등록되었습니다.\n", ws.getId());
-        lastId++;
     }
     public void readList(Rq rq) {
         System.out.println("번호 / 작가 / 명언");

@@ -4,13 +4,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class WiseSayingService {
+    private int lastId;
     private List<WiseSaying> wsList;
 
     public WiseSayingService() {
+        lastId = 1;
         wsList = new LinkedList<>();
     }
-    public void create(WiseSaying wiseSaying) {
-        wsList.add(wiseSaying);
+    public WiseSaying create(String content, String author) {
+        WiseSaying ws = new WiseSaying(lastId++, author, content);
+        wsList.add(ws);
+        return ws;
     }
 
     public List<WiseSaying> getList() {
