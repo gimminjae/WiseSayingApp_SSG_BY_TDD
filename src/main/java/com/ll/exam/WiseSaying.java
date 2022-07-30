@@ -11,6 +11,4 @@ public class WiseSaying {
     private int id;
     private String author;
     private String wiseSaying;
-
-
 }

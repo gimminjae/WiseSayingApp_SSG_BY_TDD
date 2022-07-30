@@ -22,7 +22,9 @@ public class App {
 
             String cmd = sc.nextLine();
 
-            switch (cmd) {
+            Rq rq = new Rq(cmd);
+
+            switch (rq.getPath()) {
                 case "등록":
                     System.out.print("명언 : ");
                     String wiseSaying = sc.nextLine();
@@ -42,9 +44,32 @@ public class App {
                         System.out.printf("%d / %s / %s\n", ws.getId(), ws.getAuthor(), ws.getWiseSaying());
                     }
                     break;
+                case "삭제":
+                    int id = rq.getIntParam("id", 0);
+
+                    if(id == 0) {
+                        System.out.println("번호를 입력해주세요.");
+                    } else {
+                        if(findById(id) == null) {
+                            System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+                        } else {
+                            wsList.remove(findById(id));
+                            System.out.printf("%d번 명언이 삭제되었습니다.\n", id);
+                        }
+                    }
+
+                    break;
                 case "종료":
                     break outer;
             }
         }
+    }
+
+    private WiseSaying findById(int id) {
+        for(int i = 0; i < wsList.size(); i++) {
+            WiseSaying ws = wsList.get(i);
+            if(id == ws.getId()) return ws;
+        }
+        return null;
     }
 }
