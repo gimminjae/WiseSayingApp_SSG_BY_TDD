@@ -4,31 +4,21 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class WiseSayingService {
-    private int lastId;
-    private List<WiseSaying> wsList;
-
+    private WiseSayingRepository wsRepository;
     public WiseSayingService() {
-        lastId = 1;
-        wsList = new LinkedList<>();
+        wsRepository = new WiseSayingRepository();
     }
     public WiseSaying create(String content, String author) {
-        WiseSaying ws = new WiseSaying(lastId++, author, content);
-        wsList.add(ws);
-        return ws;
+        return wsRepository.create(content, author);
     }
-
     public List<WiseSaying> getList() {
-        return wsList;
+        return wsRepository.showList();
+    }
+    public void remove(WiseSaying wiseSaying) {
+        wsRepository.remove(wiseSaying);
     }
     public WiseSaying findById(int id) {
-        for(int i = 0; i < wsList.size(); i++) {
-            WiseSaying ws = wsList.get(i);
-            if(id == ws.getId()) return ws;
-        }
-        return null;
-    }
+        return wsRepository.findById(id);
 
-    public void remove(WiseSaying wiseSaying) {
-        wsList.remove(wiseSaying);
     }
 }
