@@ -29,7 +29,7 @@ public class IoTest {
         Util.file.mkdir("test_data");
         Util.file.saveToFile("test_data/1.txt", "Hello");
 
-        String body = Util.file.readFromFile("test_data/1.txt");
+        String body = Util.file.readFromFile("test_data/1.txt", "");
 
         assertThat(body).isEqualTo("Hello");
     }
