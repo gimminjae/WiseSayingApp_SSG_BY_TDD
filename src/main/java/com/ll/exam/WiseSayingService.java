@@ -21,4 +21,9 @@ public class WiseSayingService {
         return wsRepository.findById(id);
 
     }
+
+    public WiseSaying update(WiseSaying ws, String content, String author) {
+
+        return wsRepository.update(ws, content, author);
+    }
 }

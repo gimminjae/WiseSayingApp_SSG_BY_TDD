@@ -32,6 +32,9 @@ public class App {
                 case "삭제":
                     wsController.delete(rq);
                     break;
+                case "수정":
+                    wsController.update(rq);
+                    break;
                 case "종료":
                     break outer;
             }

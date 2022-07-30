@@ -35,4 +35,10 @@ public class WiseSayingRepository {
         }
         return null;
     }
+
+    public WiseSaying update(WiseSaying ws, String content, String author) {
+        ws.setWiseSaying(content);
+        ws.setAuthor(author);
+        return ws;
+    }
 }

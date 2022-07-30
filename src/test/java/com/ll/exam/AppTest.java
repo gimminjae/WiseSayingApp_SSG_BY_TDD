@@ -96,5 +96,21 @@ public class AppTest {
         assertFalse(rs.contains("1 / 이순신 / 나의 죽음을 적들에게 알리지 말라"));
         assertTrue(rs.contains("1번 명언은 존재하지 않습니다."));
     }
+    @Test
+    void 명언_수정시_기존의_명언과_작가를_출력하고_새로운_명언과_작가를_입력받는지_Test() {
+        String rs = AppTestRunner.run("""
+                등록
+                나의 죽음을 적들에게 알리지 말라
+                이순신
+                수정?id=1
+                과거를 사랑하라
+                작자미상
+                종료
+                """);
+        assertTrue(rs.contains("명언(기존) : 나의 죽음을 적들에게 알리지 말라"));
+        assertTrue(rs.contains("명언 : "));
+        assertTrue(rs.contains("작가(기존) : 이순신"));
+        assertTrue(rs.contains("작가 : "));
+    }
 
 }
