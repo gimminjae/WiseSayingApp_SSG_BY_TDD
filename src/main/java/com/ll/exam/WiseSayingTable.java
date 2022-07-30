@@ -5,13 +5,13 @@ public class WiseSayingTable {
     public WiseSayingTable(String baseDir) {
         this.baseDir = baseDir;
     }
-    public void save(WiseSaying wiseSaying) {
+    public void save(String content, String author) {
         int id = getLastId() + 1;
 
         Util.file.mkdir("%s/wise_saying".formatted(baseDir));
         String body = "내용";
 
-        Util.file.saveToFile("%s/wise_saying/%d.json".formatted(baseDir, wiseSaying.getId()), body);
+        Util.file.saveToFile("%s/wise_saying/%d.json".formatted(baseDir, id), body);
 
     }
     public void saveLastId(int id) {
