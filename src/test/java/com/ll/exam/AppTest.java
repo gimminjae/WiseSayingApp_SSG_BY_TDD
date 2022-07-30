@@ -29,5 +29,14 @@ public class AppTest {
         assertTrue(rs.contains("명언 : "));
         assertTrue(rs.contains("작가 : "));
     }
+    @Test
+    void 명언과_작가_입력시_등록완료_메시지가_출력되는지_Test() {
+        String rs = AppTestRunner.run("""
+                등록
+                과거를 사랑하라
+                작자미상
+                """);
+        assertTrue(rs.contains("1번 명언이 등록되었습니다."));
+    }
 
 }

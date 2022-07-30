@@ -22,6 +22,8 @@ public class App {
                 case "등록":
                     System.out.print("명언 : ");
                     System.out.print("작가 : ");
+
+                    System.out.println("1번 명언이 등록되었습니다.");
                 case "종료":
                     break outer;
             }
