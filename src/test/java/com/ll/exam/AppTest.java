@@ -35,6 +35,7 @@ public class AppTest {
                 등록
                 과거를 사랑하라
                 작자미상
+                종료
                 """);
         assertTrue(rs.contains("1번 명언이 등록되었습니다."));
     }
