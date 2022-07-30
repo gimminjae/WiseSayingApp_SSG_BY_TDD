@@ -2,13 +2,10 @@ package com.ll.exam;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.util.Scanner;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AppTest {
+public class WiseSayingControllerTest {
     @Test
     public void Test() {
         assertTrue(1 == 1);
@@ -112,5 +109,17 @@ public class AppTest {
         assertTrue(rs.contains("작가(기존) : 이순신"));
         assertTrue(rs.contains("작가 : "));
     }
-
+    @Test
+    void 명언_수정완료시_완료메시지를_출력하는지_Test() {
+        String rs = AppTestRunner.run("""
+                등록
+                나의 죽음을 적들에게 알리지 말라
+                이순신
+                수정?id=1
+                과거를 사랑하라
+                작자미상
+                종료
+                """);
+        assertTrue(rs.contains("1번 명언이 수정되었습니다."));
+    }
 }
