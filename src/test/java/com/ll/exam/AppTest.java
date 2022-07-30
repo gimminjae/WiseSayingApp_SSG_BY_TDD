@@ -40,4 +40,19 @@ public class AppTest {
         assertTrue(rs.contains("1번 명언이 등록되었습니다."));
     }
 
+    @Test
+    void 등록시_명언번호가_증가하는지_Test() {
+        String rs = AppTestRunner.run("""
+                등록
+                과거를 사랑하라
+                작자미상
+                등록
+                현재를 사랑하라
+                작자모름
+                종료
+                """);
+        assertTrue(rs.contains("1번 명언이 등록되었습니다."));
+        assertTrue(rs.contains("2번 명언이 등록되었습니다."));
+    }
+
 }
